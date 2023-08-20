@@ -1,0 +1,38 @@
+@media (max-width: 1200px) {
+  .nav {
+    max-width: 990px;
+    text-align: center;
+    margin: auto;
+  }
+  .section1 .container-1 {
+    max-width: 990px;
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    margin-top: 85px;
+    max-width: 710px;
+  }
+}
+
+@media (max-width: 764px) {
+  .header {
+    max-width: 550px;
+  }
+
+  div.nav {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 580px) {
+  .header {
+    max-width: 100%;
+  }
+
+  div.nav {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
