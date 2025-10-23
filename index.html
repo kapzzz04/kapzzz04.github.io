@@ -1,411 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Atlatic-pedia</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selamat Ulang Tahun, Anestya!</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: linear-gradient(135deg,#0f172a 0%, #0b1220 100%);
+      --card-bg: rgba(255,255,255,0.06);
+      --accent: #ff6b6b;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:var(--bg);color:#e6eef8}
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="nyangkut">
-          <div class="artikel">
-            <div class="a-awal">
-              <span class="st-1">Hanya di</span>
-              <span class="ww">www.atlantic-pedia.co.id</span>
-            </div>
-            <h1>
-              Butuh Produk Digital?
-              <br />
-              <span class="t-nari"> Atlantic-Pedia. </span>
-              aja
-            </h1>
-            <p>
-              Atlantic-Pedia | Distributor Pulsa & SMM H2H Murah Di Indonesia
-              adalah Pusat Reseller Produk Digital penyedia Layanan Social Media
-              dan Pulsa All Operator seperti Kebutuhan Instagram, Facebook,
-              Youtube, netflix Premium,youtube premium,spotify premium, dan
-              sebagainya.
-            </p>
-            <div class="tombol">
-              <a
-                href="https://atlantic-pedia.co.id/auth/login"
-                class="btn btn-primary mt-2 mr-2"
-              >
-                <i class="material-symbols-outlined">^ </i> Login</a
-              >
+    .stage{width:100%;max-width:980px;margin:0 auto;padding:2rem}
+    .card-modern{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:20px;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
 
-              <a
-                href="https://play.google.com/store/apps/details?id=com.atlantic.pedia"
-                target="_blank"
-                class="btn smal btn-outline-primary mt-2"
-                ><i class="mdi mdi-google-play">^^</i> Play Store</a
-              >
-            </div>
-          </div>
+    .hero{
+      display:grid;grid-template-columns: 360px 1fr;gap:1.25rem;align-items:center;
+    }
+    @media (max-width:800px){.hero{grid-template-columns:1fr;}}
+
+    .photo-wrap{display:flex;align-items:center;justify-content:center}
+    .photo{
+      width:320px;height:320px;border-radius:18px;object-fit:cover;border:6px solid rgba(255,255,255,0.06);box-shadow:0 18px 40px rgba(2,6,23,0.7);transform:scale(0.85);opacity:0;
+      transition:transform 700ms cubic-bezier(.2,.9,.3,1),opacity 700ms ease;
+    }
+    .photo.show{transform:scale(1);opacity:1}
+
+    .content h1{font-size:2rem;margin:0 0 0.25rem 0}
+    .name{color:var(--accent);font-weight:700;letter-spacing:0.4px}
+    .subtitle{color:rgba(230,238,248,0.75);margin-bottom:0.75rem}
+
+    .bubble{
+      background:var(--card-bg);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-bottom:0.9rem;opacity:0;transform:translateY(18px);transition:opacity 500ms ease, transform 500ms cubic-bezier(.2,.9,.3,1);
+    }
+    .bubble.show{opacity:1;transform:translateY(0)}
+
+    /* Typewriter */
+    .typewriter{font-weight:500;font-size:1.05rem;min-height:3.2rem}
+    .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:6px;vertical-align:middle;animation:blink 900ms steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    /* small decorative hearts */
+    .hearts{display:flex;gap:8px;margin-top:6px}
+    .heart{width:12px;height:12px;background:var(--accent);transform:rotate(-45deg);border-radius:3px;opacity:0;animation:pop 700ms forwards}
+    .heart::after,.heart::before{content:'';position:absolute;width:12px;height:12px;background:var(--accent);border-radius:50%}
+    @keyframes pop{0%{transform:scale(0.2) rotate(-45deg);opacity:0}60%{transform:scale(1.12) rotate(-45deg);opacity:1}100%{transform:scale(1) rotate(-45deg);opacity:1}}
+
+    /* small footer */
+    .footer{font-size:0.85rem;color:rgba(230,238,248,0.6);margin-top:1rem}
+
+    /* floating confetti canvas */
+    canvas#confetti{position:fixed;left:0;top:0;pointer-events:none;z-index:40}
+
+#bubble1, #bubble2
+{ text-align: center; }
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="stage">
+    <div class="card-modern">
+      <div class="hero">
+        <div class="photo-wrap">
+          <!-- Ganti src dengan path foto kamu (contoh: images/anestya.jpg) -->
+          <img id="photo" class="photo" src="cantik.jpg" alt="Foto Anestya Sirlita Putri">
         </div>
 
-        <div class="himg">
-          <img
-            src="https://atlantic-pedia.co.id/landing/library/assets/images/app/atl-1-c.png"
-            class="img-fluid"
-            style="width: 70%"
-            alt=""
-          />
-        </div>
-      </header>
-      <nav class="navigasi">
-        <div class="nav">
-          <h1>Atlantic-Pedia.</h1>
+        <div class="content">
+          <h1>Happy Birthday Dede gemess, <span class="name">Anestya Sirlita Putri</span> 🎉</h1>
+          <div class="subtitle">Haloo dede gemess imuttt lucu, sekarang umur dede bertambah satu sayang, Wih sudah besar dede yaa sudah 16 Tahun 🥳🥳🥳</div>
 
-          <ul>
-            <li><a href="">home</a></li>
-            <li><a href="">tentang kami</a></li>
-            <li><a href="">list harga</a></li>
-            <li><a href="">faq</a></li>
-            <li>
-              <a href="" id="jaya">help center</a>
-              <span class="menu-anak"></span>
-              <ul class="mt-menu">
-                <li><a href="">kontak</a></li>
-                <li><a href="">terms & conditions</a></li>
-              </ul>
-            </li>
-          </ul>
-
-          <div class="menu-toggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
+          <div id="messageBox">
+            <div class="bubble" id="bubble1">Untuk kesayangan kaka, Semoga segala urusannya dilancarkan, termasuk hubungan kita nanti kedepannya. Semoga bebyy terus menjadi kesayangan kaka untuk tahun tahun berikutnya dan dede tetep selalu jadi diri sendiri yaa dihadapan kaka. dari bertambahnya umur dede semoga doa yang baik yang dede panjatkan terkabulkan satu persatu sayangg yaaa 💖</div>
+            <div class="bubble" id="bubble2">Setelah bertambah nya umur dede, kaka yakin dede semakin hebat, semakin kuat, semakin baik hati, semakin sayang sama kaka, semakin perhatian agi sama kaka, semakin dipercepat ke NYC. doa dari kaka banyak jadi kaka singkat beberapa saja sisa nya didalam sepertiga malam saja. Semoga disetiap langkah dede nanti menuju apa yang dede impikan cita cita dede, semoga dipermudah jalan nya. setelah ini lebih banyak bahagianya yaa kesayangan kakaa😚😚😚</div>
+            <div class="bubble typewriter" id="typewriter"></div>
           </div>
 
-          <a href="" class="btn">register</a>
-        </div>
-      </nav>
+          <div class="hearts" id="hearts">
+            <div class="heart" style="animation-delay:.1s"></div>
+            <div class="heart" style="animation-delay:.25s"></div>
+            <div class="heart" style="animation-delay:.4s"></div>
+          </div>
 
-      <div class="path">
-        <svg
-          viewBox="0 0 2880 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 48H1437.5H2880V0H2160C1442.5 72 920 0 550 0H0V48Z"
-            fill="#f8f9fc"
-          ></path>
-        </svg>
+          <div class="footer">Dari: <strong>Kesayangan nya Kamu</strong> • Klik gambar untuk memperbesar</div>
+        </div>
       </div>
-      <section class="section1">
-        <div class="container-1">
-          <div class="row one">
-            <div class="just">
-              <h1 class="js-or">Cara Melakukan Order</h1>
-              <p class="text-muted">
-                3 Langkah mudah untuk menggunakan layanan di
-                <span class="text-primary">Atlantic-Pedia</span>.
-              </p>
-            </div>
-          </div>
-
-          <div class="row tow">
-            <div class="box-u u-satu">
-              <div class="jay">
-                <img
-                  src="https://atlantic-pedia.co.id/landing/library/assets/images/icon/account.svg"
-                  class="avatar avatar-small"
-                  alt=""
-                />
-              </div>
-              <h4>Daftar Menjadi Member</h4>
-              <p class="text-muted para">
-                Pendaftaran member Atlantic-Pedia gratis, mudah, &amp;
-                memerlukan aktivasi untuk dapat mengaktifkan akun anda
-              </p>
-              <ul class="bayangan">
-                <li>langkah 01.</li>
-                <li></li>
-              </ul>
-            </div>
-            <div class="box-u u-dua">
-              <div class="jay">
-                <img
-                  src="https://atlantic-pedia.co.id/landing/library/assets/images/icon/bank.svg"
-                  class="avatar avatar-small"
-                  alt=""
-                />
-              </div>
-              <h4>Deposit Saldo</h4>
-              <p class="text-muted para">
-                Deposit saldo 24 jam online, Saldo Otomasis masuk, Bank transfer
-                lengkap, Minimal deposit hanya 10rb
-              </p>
-              <a href="#" class="read-more">Read more ></a>
-              <ul class="bayangan">
-                <li>langkah 02.</li>
-                <li></li>
-              </ul>
-            </div>
-            <div class="box-u u-tiga">
-              <div class="jay">
-                <img
-                  src="https://atlantic-pedia.co.id/landing/library/assets/images/icon/shop.svg"
-                  class="avatar avatar-small"
-                  alt=""
-                />
-              </div>
-              <h4>Transaksi</h4>
-              <p class="text-muted para">
-                Setelah saldo terisi, langsung bisa transaksi produk digital
-                yang telah kami sediakan.
-              </p>
-              <ul class="bayangan">
-                <li>langkah 03.</li>
-                <li></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="container-2 d-flex mt-5 flex-column">
-          <div class="judul-c2 flex-grow-1 text-center p-4">
-            <h3 class="fs-2 mb-3">Mengapa Atlantic-Pedia?</h3>
-            <span class="d-flex flex-column w-75 m-auto"
-              >Berbagai Alasan untuk Memilih Atlantic-Pedia Sebagai Partner
-              Bisnis Anda,
-              <span
-                >Transaksi Aman & Nyaman Dengan
-                <span class="text-primary">Atlantic-Pedia</span></span
-              >
-            </span>
-          </div>
-          <div class="bg-info d-flex flex-row">
-            <div class="content w-100">
-              <div class="isi-content">
-                <div class="media-1 media">
-                  <div class="isi-media-1">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4 class="h3-m1">Google Play Store</h4>
-                    <p>
-                      Anda dapat mengunduh aplikasi resmi kami dalam
-                      <span class="m-play">Google Play store</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="media-2 media">
-                  <div class="isi-media-1">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4 class="h3-m1">Google Play Store</h4>
-                    <p>
-                      Anda dapat mengunduh aplikasi resmi kami dalam
-                      <span class="m-play">Google Play store</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="media-3 media">
-                  <div class="isi-media-1">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4 class="h3-m1">Google Play Store</h4>
-                    <p>
-                      Anda dapat mengunduh aplikasi resmi kami dalam
-                      <span class="m-play">Google Play store</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="media-4 media">
-                  <div class="isi-media-1">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4 class="h3-m1">Google Play Store</h4>
-                    <p>
-                      Anda dapat mengunduh aplikasi resmi kami dalam
-                      <span class="m-play">Google Play store</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="media-5 media">
-                  <div class="isi-media-1 isi-media">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <div class="art">
-                      <h4 class="h3-m1">Google Play Store</h4>
-                      <p>
-                        Anda dapat mengunduh aplikasi resmi kami dalam
-                        <span class="m-play">Google Play store</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="media-6 media">
-                  <div class="isi-media-1">
-                    <div class="icon-m1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#007BFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-check-circle fea icon-ex-md text-primary"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4 class="h3-m1">Google Play Store</h4>
-                    <p>
-                      Anda dapat mengunduh aplikasi resmi kami dalam
-                      <span class="m-play">Google Play store</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="img-pajang flex-shrink-1">
-                <img
-                  src="https://atlantic-pedia.co.id/landing/library/assets/images/app/atl-2-c.png"
-                  class="img-fluid"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              s
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section2"></section>
-      <section class="section3"></section>
-      <div class="costumer"></div>
-      <footer class="footer"></footer>
     </div>
+  </div>
 
-    <!-- dari bootstrap 5 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ---------- Simple reveal sequence ----------
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const photo = document.getElementById('photo');
+      const bubbles = [document.getElementById('bubble1'), document.getElementById('bubble2')];
+      const typeEl = document.getElementById('typewriter');
 
-    <script>
-      const menu = document.querySelector(".menu-toggle");
-      const baru = document.querySelector(".nav ul");
-
-      menu.addEventListener("click", function () {
-        baru.classList.toggle("slide");
+      // if photo fails to load, use a soft placeholder background
+      photo.addEventListener('error', ()=>{
+        photo.src = ''; photo.style.background = 'linear-gradient(135deg,#1a2a6c,#b21f1f)';
+        photo.alt = 'Foto (ganti dengan foto Anestya)';
       });
 
-      // menu help center
-      const mtMenu = document.querySelector("ul .mt-menu");
-      const mtSatu = document.querySelector(".nav ul li #jaya");
-      const ulAnak = document.querySelector("ul .menu-anak");
+      // Show photo with a slight delay
+      setTimeout(()=>{ photo.classList.add('show'); }, 450);
 
-      mtSatu.addEventListener("mouseenter", function () {
-        mtMenu.style.display = "block";
-        ulAnak.style.borderBottom = "7px solid #007BFF";
+      // Show bubbles sequentially
+      bubbles.forEach((b,i)=> setTimeout(()=> b.classList.add('show'), 1100 + i*500));
+
+      // Start typing after bubbles
+      const typingLines = [
+        'Terima kasih sudah membuat setiap hari terasa spesial.',
+        'Kamu adalah alasan senyumku. Selamat ulang tahun, sayang ❤️',
+        'Semoga semua harapanmu jadi nyata — aku selalu di sampingmu.'
+      ];
+      setTimeout(()=> typeMultiple(typeEl, typingLines), 2200);
+
+      // hearts appear
+      setTimeout(()=>{
+        document.querySelectorAll('.heart').forEach((h, idx)=>{ h.style.opacity=1; h.style.transform='rotate(-45deg)'; });
+      }, 2000);
+
+      // clicking photo -> open in new tab larger
+      photo.style.cursor='pointer';
+      photo.addEventListener('click', ()=>{
+        if(photo.src) window.open(photo.src, '_blank');
       });
 
-      mtMenu.addEventListener("mouseleave", function () {
-        mtMenu.style.display = "none";
-        ulAnak.style.borderBottom = "7px solid #1d1c1c";
-      });
-    </script>
-  </body>
+      // confetti celebration after typing 
+      setTimeout(()=> launchConfetti(), 5200);
+    });
+
+    // ---------- Typewriter for multiple lines ----------
+    function typeMultiple(el, lines, idx=0){
+      if(idx>=lines.length) return;
+      typeLine(el, lines[idx], ()=> setTimeout(()=> typeMultiple(el, lines, idx+1), 600));
+    }
+    function typeLine(el, text, cb){
+      el.textContent = '';
+      const cursor = document.createElement('span'); cursor.className='cursor'; el.appendChild(cursor);
+      let i=0;
+      const speed = 36; // ms per char
+      function step(){
+        if(i<text.length){
+          cursor.insertAdjacentText('beforebegin', text.charAt(i)); i++; setTimeout(step, speed + Math.random()*40);
+        } else {
+          cursor.remove(); if(cb) cb();
+        }
+      }
+      step();
+    }
+
+    // ---------- Minimal confetti (canvas) ----------
+    function launchConfetti(){
+      const canvas = document.getElementById('confetti');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth; let h = canvas.height = window.innerHeight;
+      window.addEventListener('resize', ()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
+
+      const particles=[]; const colors=['#ff6b6b','#ffd166','#6bf1ff','#c3a5ff','#8ef57f'];
+      for(let i=0;i<120;i++) particles.push({x:Math.random()*w,y:-Math.random()*h*0.5, vx:(Math.random()-0.5)*2, vy:2+Math.random()*3, r:2+Math.random()*6, c:colors[i%colors.length], rot:Math.random()*360, vr:Math.random()*6-3});
+
+      let frame=0; const gravity=0.02;
+      function render(){ ctx.clearRect(0,0,w,h); frame++;
+        particles.forEach(p=>{
+          p.x += p.vx; p.y += p.vy; p.vy += gravity; p.rot += p.vr;
+          ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+          ctx.fillStyle = p.c; ctx.fillRect(-p.r/2,-p.r/2,p.r*1.2,p.r); ctx.restore();
+          if(p.y>h+20){ p.y = -20; p.x = Math.random()*w; p.vy = 2+Math.random()*3; }
+        });
+        if(frame<700) requestAnimationFrame(render); else ctx.clearRect(0,0,w,h);
+      }
+      render();
+    }
+
+  </script>
+</body>
 </html>
